@@ -1,0 +1,45 @@
+#!/usr/bin/env python3
+
+# Example 19-21
+# Demonstrates one way to reuse PyCalc's CalcGui class by extending and embedding,
+# similar to what was done for the simple calculator
+# Author: Mark Lutz
+# Last modified: 
+
+"""
+test calculator: use an extended and embedded GUI component
+"""
+
+from tkinter import *
+from calculator import CalcGui
+
+def calcContainer(parent=None):
+    frm = Frame(parent)
+    frm.pack(expand=YES, fill=BOTH)
+    Label(frm, text='Calc Container').pack(side=TOP)
+    CalcGui(frm)
+    Label(frm, text='Calc Container').pack(side=BOTTOM)
+    return frm
+
+class calcSubclass(CalcGui):
+    def makeWidgets(self, fg, bg, font):
+        Label(self, text='Calc Subclass').pack(side=TOP)
+        Label(self, text='Calc Subclass').pack(side=BOTTOM)
+        CalcGui.makeWidgets(self, fg, bg, font)
+        # Label(self, text='Calc Subclass').pack(side=BOTTOM)
+
+if __name__ == '__main__':
+    import sys
+    if len(sys.argv) == 1:              # % calculator_test.py
+        root = Tk()                     # run 3 calcs in same process
+        CalcGui(Toplevel())             # each in a new window
+        calcContainer(Toplevel())
+        calcSubclass(Toplevel())
+        Button(root, text='quit', command=root.quit).pack()
+        root.mainloop()
+    if len(sys.argv) == 2:               # % calculator_test.py -
+        CalcGui().mainloop()            # as a standalone window (default root)
+    elif len(sys.argv) == 3:            # % calculator_test.py - - 
+        calcContainer().mainloop()      # as an embedded component
+    elif len(sys.argv) == 4:            # % calculator_test.py - - -
+        calcSubclass().mainloop()       # as a customized superclass
