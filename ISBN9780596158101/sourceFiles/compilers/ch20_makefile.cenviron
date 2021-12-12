@@ -1,0 +1,21 @@
+# Example 20-9
+# Adds a reference to cenviorn.c and colies and links it to an object file. Builds 
+# the C source code for dynamic binding on imports.
+# Author: Mark Lutz, Paul I Ighofose
+# Last modified: 2019-04-23
+
+################################################################################
+# Compile ch20_cenviron.c into ch20_cenviron.dll--a shareable object file on 
+# Cygwin, which is loaded dynamically when first imported.
+################################################################################
+
+PYLIB = /usr/bin
+PYINC = /usr/include/python3.6m
+CLIB = ../libraries
+CLANG = ../c_language
+
+$(CLIB)/ch20_cenviron.dll: $(CLANG)/ch20_cenviron.c
+	gcc $(CLANG)/ch20_cenviron.c -g -I$(PYINC) -shared -L$(PYLIB) -lpython3.6m -o $@
+
+clean:
+	rm -f *.pyc $(CLIB)/ch20_cenviron.dll

@@ -1,0 +1,32 @@
+# Example 20-25
+# Used to build the chapter20s second section's C programs on Cygwin
+# on Windows
+# Author: Mark Lutz, Paul I Ighofose
+# Last modified: 2019-04-25
+
+# Cygwin makefile to build all 5 basic embedding examples at once
+
+PYLIB = /usr/bin
+PYINC = /usr/include/python3.6m
+CLIB = ../libraries
+CLANG = ../c_language
+CHAPT = ../../chapter20
+SWIG = /cygdrive/C/swigwin-3.0.12/swig
+CAPP = ../app
+
+BASICS = $(CAPP)/ch20_embed-simple.exe \
+         $(CAPP)/ch20_embed-string.exe \
+         $(CAPP)/ch20_embed-object.exe \
+         $(CAPP)/ch20_embed-dict.exe   \
+         $(CAPP)/ch20_embed-bytecode.exe 
+
+all: $(BASICS)
+
+$(CAPP)/ch20_embed%.exe: $(CLIB)/embed%.o
+	gcc $(CLIB)/embed$*.o -L$(PYLIB) -lpython3.6m -g -o $@
+
+$(CLIB)/ch20_embed%.o: $(CLANG)/ch20_embed%.c
+	gcc $(CLANG)/ch20_embed$*.c -c -g -I$(PYINC) -o $(CLIB)/ch20_embed%.o
+
+#clean:
+#	rm -f $(CLIB)/embed$*.o $(CHAPT)/*.pyc $(BASICS) core

@@ -1,0 +1,24 @@
+<html>
+    <!--
+    # Example 15-28
+    # A simple web page that allows the desired file to be typed directly into 
+    # a form
+    # Author: Mark Lutz
+    # Last modified: 
+    -->
+    <body>
+        <form method="get" action="cgi-bin/ch15_getfile.py">
+            <h1>Type name of server file to be viewed<h1>
+            <p>
+                <input type="text" size="50" name="filename" />
+            </p>
+            <p>
+                <input type="submit" value="Download" />
+            </p>
+        </form>
+        <hr />
+        <a href="cgi-bin/ch15_getfile.py?filename=cgi-bin\ch15_getfile.py">
+            View script code
+        </a>
+    </body>
+</html>

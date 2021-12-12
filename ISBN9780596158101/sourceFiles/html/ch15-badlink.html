@@ -1,0 +1,26 @@
+<html>
+    <!--
+    # Example 1-30
+    # Is a HTML document with an input form stored on a web server machine, and it 
+    # is transferred to the web browser running on the client machine upon request
+    # Author: Mark Lutz
+    # Last modified: 
+    -->
+    <body>
+        <p>
+            <a href="cgi-bin/ch15_badlink.py?name=a&job=b&amp=c&sect=d&lt=e">
+                unescaped
+            </a>
+        </p>
+        <p>
+            <a href="cgi-bin/ch15_badlink.py?name=a&amp;job=b&amp;amp=c&amp;sect=d&amp;lt=e">
+                escaped
+            </a>
+        </p>
+        <p>
+            <a href="cgi-bin/ch15_badlink.py?name=a;job=b;amp=c;sect=d;lt=e">
+                alternative
+            </a>
+        </p>
+    </bodY>
+</html>

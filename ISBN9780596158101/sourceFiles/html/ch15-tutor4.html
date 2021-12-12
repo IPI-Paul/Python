@@ -1,0 +1,32 @@
+<html>
+    <title>
+        CGI 101
+    </title>
+    <!---
+    # Example 15-9
+    # Defines a form with two input fields.
+    # Author: Mark Lutz
+    # Last modified: 
+    -->
+    <body>
+        <h1>A second user interaction: tables</h1>
+        <hr />
+        <form method="POST" action="cgi-bin/ch15_tutor4.py">
+            <table>
+                <tr>
+                <th align="right">Enter your name:</th>
+                <td><input type="text" name="user" /></td>
+                </tr>
+                <tr>
+                <th align="right">Enter your age:</th>
+                <td><input type="text" name="age" /></td>
+                </tr>
+                <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" value="Send" />
+                </td>
+                </tr>
+            </table>
+        </form>
+    </body>
+</html>

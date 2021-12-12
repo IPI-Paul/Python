@@ -1,0 +1,25 @@
+<html>
+    <!--
+    # Example 15-29
+    # Defines a page that allows any client-side file to be slected and uploaded
+    # to the server-side script named in the form's action option.
+    # Author: Mark Lutz
+    # Last modified: 
+    -->
+    <body>
+        <form enctype="multipart/form-data" method="post" 
+        action="cgi-bin/ch15_putfile.py">
+            <h1>Select client file to be uploaded</h1>
+            <p>
+                <input type="file" size="50" name="clientfile" />
+            </p>
+            <p>
+                <input type="submit" value="upload" />
+            </p>
+        </form>
+        <hr />
+        <a href="cgi-bin/ch15_getfile.py?filename=cgi-bin\ch15_putfile.py">
+            View script code
+        </a>
+    </body>
+</html>

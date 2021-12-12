@@ -1,0 +1,22 @@
+# Example 20-2
+# To use the C file in Python, compile it into a dynamically loadable object file 
+# with this makefile and drop the resulting file into a director listed on your
+# module import search path exactly as though it were a .py or .pyc file
+# Author: Mark Lutz, Paul I Ighofose
+# Last modified: 2019-04-23
+
+################################################################################
+# Compile hello.c into a shareable object file on Cygwin, to be loaded 
+# dynamically when first imported by Python
+################################################################################
+
+PYLIB = /usr/bin
+PYINC = /usr/include/python3.6m
+CLIB = ../libraries
+CLANG = ../c_language
+
+$(CLIB)/hello.dll: $(CLANG)/ch20_hello.c
+	gcc $(CLANG)/ch20_hello.c -g -I$(PYINC) -shared -L$(PYLIB) -lpython3.6m -o $(CLIB)/ch20_hello.dll
+
+clean:
+	rm -f $(CLIB)/ch20_hello.dll core

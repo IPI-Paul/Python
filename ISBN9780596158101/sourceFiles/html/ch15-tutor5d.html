@@ -1,0 +1,33 @@
+<html>
+    <title>CGI 101</title>
+    <!---
+    # Example 15-15
+    # Allows a job field to be entered, but fills in name and language parameters
+    # automatically as hidden input fields
+    # Author: Mark Lutz
+    # Last modified: 
+    -->
+    <body>
+        <h1>Common input devices: hidden form fields</h1>
+        
+        <p>
+            This demo invokes the tutor5.py (ch15_tutor5.py) server-side script
+            again, but hardcodes input data in the form itself as hidden input 
+            fields, instead of as parameters at the end or URL hyperlinks. As
+            before, the text of this form, including the hidden fields, can be 
+            generated as part of the page output by another CGI script, to pass
+            data on to the next script on submit; hidden form fields provide 
+            another way to save state between pages.
+        </p>
+        <hr />
+        <p>
+            <form method="POST" action="cgi-bin/ch15_tutor5.py">
+                <input type="hidden" name="name" value="Sue" />
+                <input type="hidden" name="language" value="Python" />
+                <input type="text" name="job" value="Enter Job" />
+                <input type="submit" value="Submit Sue" />
+            </form>
+        </p>
+        <hr />
+    </body>
+</html>

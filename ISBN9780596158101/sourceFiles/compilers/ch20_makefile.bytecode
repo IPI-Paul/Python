@@ -1,0 +1,26 @@
+# Example 20-24
+# Is a minimal makefile for building the C program in Example 20-23 under Cygwin
+# on Windows
+# Author: Mark Lutz, Paul I Ighofose
+# Last modified: 2019-04-25
+
+# Cygwin makefile that builds a C executable that embeds Python, assuming no 
+# external module libs must be linked in; uses Python header files, links in the 
+# Python lib file; both may be in other dirs (e.g., /usr) in your install;
+
+PYLIB = /usr/bin
+PYINC = /usr/include/python3.6m
+CLIB = ../libraries
+CLANG = ../c_language
+CHAPT = ../../chapter20
+SWIG = /cygdrive/C/swigwin-3.0.12/swig
+CAPP = ../app
+
+$(CAPP)/ch20_embed-bytecode: $(CLIB)/ch20_embed-bytecode.o
+	gcc $(CLIB)/ch20_embed-bytecode.o -L$(PYLIB) -lpython3.6m -g -o $(CAPP)/ch20_embed-bytecode
+
+$(CLIB)/ch20_embed-bytecode.o: $(CLANG)/ch20_embed-bytecode.c
+	gcc $(CLANG)/ch20_embed-bytecode.c -c -g -I$(PYINC) -o $(CLIB)/ch20_embed-bytecode.o
+
+clean:
+	rm -f $(CLIB)/ch20_embed-bytecode.o $(CHAPT)/*.pyc

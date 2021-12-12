@@ -1,0 +1,25 @@
+<html>
+    <title>CGI 101</title>
+    <!--
+    # Example 15-6
+    # Collects user inputs using the special HTML tag <form>. Implements a simple
+    # web interaction to see forms at work
+    # Author: Mark Lutz
+    # Last modified: 
+    -->
+    <body>
+        <h1>A first user interaction: forms</h1>
+        <hr />
+        <form method="POST" action="http://localhost/cgi-bin/ch15_tutor3.py">
+            <p>
+                <b>Enter your name:<b>
+            </p>
+            <p>
+                <input type="text" name="user" />
+            </p>
+            <p>
+                <input type="submit" />
+            </p>
+        </form>
+    </body>
+</html>

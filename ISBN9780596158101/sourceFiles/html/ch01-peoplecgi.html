@@ -1,0 +1,25 @@
+<html>
+    <title>People Input form</title>
+    <!--
+    # Example 1-33
+    # Is an HTML input form. Implements interaction with a Python CGI script for 
+    # displaying results and processing update requests
+    # Author: Mark Lutz
+    # Last modified: 
+    -->
+    <body>
+        <form method="POST" action="cgi-bin/ch01_peoplecgi.py">
+            <table>
+                <tr><th>Key </th><td><input type="text" name="key" /></td></tr>
+                <tr><th>Name </th><td><input type="text" name="name" /></td></tr>
+                <tr><th>Age </th><td><input type="text" name="age" /></td></tr>
+                <tr><th>Job </th><td><input type="text" name="job" /></td></tr>
+                <tr><th>Pay </th><td><input type="text" name="pay" /></td></tr>
+            </table>
+            <p>
+                <input type="submit" value="Fetch" name="action" />
+                <input type="submit" value="Update" name="action" />
+            </p>
+        </form>
+    </body>
+</html>

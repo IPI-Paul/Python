@@ -1,0 +1,25 @@
+# Example 20-31
+# Is a minimal makefile for building the C program in Example 20-23 under Cygwin
+# on Windows
+# Author: Mark Lutz, Paul I Ighofose
+# Last modified: 2019-04-25
+
+################################################################################
+# Cygwin makefile that builds ch20_cregister.dll. a dynamically loaded C  
+# extension module (shareable), which is imported by register.py
+################################################################################
+
+PYLIB = /usr/bin
+PYINC = /usr/include/python3.6m
+CLIB = ../libraries
+CLANG = ../c_language
+CHAPT = ../../chapter20
+CMODS = ch20_cregister.dll
+
+all: $(CLIB)/$(CMODS)
+
+$(CLIB)/ch20_cregister.dll: $(CLANG)/ch20_cregister.c
+	gcc $(CLANG)/ch20_cregister.c -g -I$(PYINC) -shared -L$(PYLIB) -lpython3.6m -o $@
+
+clean:
+	rm -f $(CHAPT)/*.pyc $(CMODS)
