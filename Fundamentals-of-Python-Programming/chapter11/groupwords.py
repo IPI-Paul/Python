@@ -1,0 +1,43 @@
+# Listing 11.12
+# Groups words into lists based on the number of letters in the word.
+# Author: Rick Halterman
+# Last modified: 
+
+"""
+Uses a dictionary to group the words in a text file according to their length 
+(number of letters).
+"""
+
+import sys      # For argv global command line arguments list
+
+def main():
+    """
+    Group the words by length in a text file.
+    """
+    if len(sys.argv) < 2:   # Did the user not supply a file name?
+        filename = input('Please give filename: ')
+    else:       # User provided file name
+        filename = sys.argv[1]
+    if filename == '':
+        print('Usage: python groupwords.py <filename>')
+        print('       where <filename> is the name of the text file.')
+    else:       # User provided file name
+        groups = {}       # Initialise grouping dictionary
+        with open(filename, 'r') as f:  # Open the file for reading
+            content = f.read()  # Read in content of the entire file
+            words = content.split() # Make list of individual words
+            for word in words:
+                word = word.upper() # Make the word all caps
+                # Compute the word's length
+                size = len(word)
+                if size in groups:
+                    if word not in groups[size]:  # Avoid duplicates
+                        groups[size] += [word] # Add the word to its group
+                else:
+                    groups[size] = [word] # Add the word to the new group
+            # Show the groups
+            for size, group in groups.items():
+                print(size, group)
+
+if __name__ == '__main__':
+    main()
