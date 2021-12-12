@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Python and EEL GUI - Corona Virus Statistics</title>
+        <meta charset="UTF-8" />
+        <meta name="Viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="/eel.js" type="text/javascript"></script>
+        <script src="/scripts/tutorial_4.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="/styles/tutorial_4.css" />
+        <!--<link rel="stylesheet" href="css/bootstrap.css" />-->
+    </head>
+    <body onload="update_countries()">
+        <section id="head" class="head">
+            <h1 style="color: floralwhite; font-size: 50px; font-weight: bolder; text-align: center">
+                Please Enter The Country Name
+            </h1>
+            <form>
+                <label for="country">Contry Name:</label>
+                <select id="selCountry" onchange="selChange(value)">
+                    <option />
+                </select><input type="text" id="country" name="country" placeholder="country name" />
+            </form>
+        </section>
+        <div class="container-fluid">
+            <button id="submit" type="submit" onclick="generate_data()">Submit</button>
+        </div>
+    </body>
+</html>
+
+

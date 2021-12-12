@@ -1,0 +1,42 @@
+body {
+    background-color: blueviolet;
+}    
+#navbar {
+    width: 70px;
+    height: 15vh;
+    position: fixed;
+    right: -250px;
+    top: 20px;
+    z-index: 2;
+    background-color: purple;
+    transition: .7s;
+}
+nav ul {
+    list-style-position: inside;
+    padding-left: 2px;
+    margin: 0px;
+}    
+nav ul li {
+    list-style: none;
+    margin: 2px 2px;
+}
+nav ul li a {
+    text-decoration: none;
+    font-weight: bolder;
+    color: whitesmoke;
+    font-size: 9px;
+}    
+.menu {
+    width: 15px;
+    height: 2px;
+    margin: 2px 2px;
+    background-color: black;
+}  
+section {
+    background-color: red;
+    position: fixed;
+    z-index: 2;
+    right: 5px;
+    top: 5px;
+    cursor: pointer;
+}    
