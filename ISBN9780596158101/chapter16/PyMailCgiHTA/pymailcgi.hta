@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <title>
+            PyMailCGI Main Page
+        </title>
+        <!--
+        # Example by IPI-Paul.
+        # Is primarily used to publish links to the send and View function's pages
+        # Author: Mark Lutz, Paul I Ighofose April
+        # Last modified: 2019-04-07
+        -->
+      <script type="text/javascript" language="javascript">
+        var loc = "http://localhost:8000/cgi-bin/";
+        window.resizeTo(1024, 600);
+        window.moveTo(2, 2);
+        
+        function emlSend() {
+          document.getElementById("cgi").src = loc + "onRootSendLink.py"
+        }
+        
+        function emlView() {
+          document.getElementById("cgi").src = loc + "onRootViewLink.py"
+        }
+      </script>
+    </head>
+    <body>
+    <table width="100%" height="100%" cellpadding="0">
+      <tr height="10">
+        <td align="right">
+          <input type="button" value="Send Email" onclick="emlSend()" />
+          <input type="button" value="View Emails" onclick="emlView()" />
+        </td>
+      </tr>
+      <tr>
+        <td colspan="5">
+          <iframe id="cgi" name="cgi" 
+           src="javascript: document.write('Hello PyMailCGI World ;-D')" 
+           width="100%" height="100%" />
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
