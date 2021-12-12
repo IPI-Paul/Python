@@ -1,0 +1,15 @@
+{
+'message_id': 1,
+'published_parsed': (2019, 2, 20, 1, 5, 0, 0, 3, 0),
+'link': 'http://www.ipi-international.co.uk',
+'author_detail': {
+'name': 'Paul I Ighofose',
+'email': 'paul@ipi-international.co.uk'},
+'title_detail': {
+'type': 'text/plain',
+'value': 'NNTP Server and Client'},
+'summary_detail': 'NNTP Server and Client now working',
+'content': [{
+'type': 'text/plain',
+'value': 'Finally updated both the client and server to work in Python 3.6'},]
+}
