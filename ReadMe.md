@@ -1,4 +1,4 @@
-# Learnind and Developing in Python
+# Learning and Developing in Python
 
 Over the past couple of months after installing a fresh copy of Slackware 15, I decided to brush up on my Python knowledge. I was immediately impressed with how far along Python has come.
 
