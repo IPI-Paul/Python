@@ -9,6 +9,15 @@ As usual, it meant watching and following along to a lot of YouTube video tutori
  - opens links to YouTube vidoes in the default browser and local files in a Python video player which it switches views to
  - serves the currently viewed filtered list to http clients on a single view mode. Hence once the page is loaded by a client, the web service is stopped to allow the browser to regain interactive operation
 
+# IPI Galaxy Tab Text to Speech
+
+After a few failed attempts, I decided to give it another go. Luckily I found a solution on StackOverFlow that offered saving and reading some hard coded text. Unfortunately the method of reading did not work because the App used was not recognised by the Python App on the Galaxy tablet. So I made the following changes:
+
+ - Populated the text variable with clipboard text using PyQt5 widgets
+ - Played the saved mp3 using the PyQt5 media player
+
+I will have to eventually learn how to provide a browser/form element to enable Start, Pause, Resume and Stop functions as trying to use a simple tkinter form would not work.
+
 # Learn Python in 5hrs
 
 Nana was a good tutor to start with and her suggestion of using PyCharm has made it my preferred IDE on my Linux distro https://m.youtube.com/watch?v=t8pPdKYpowI
