@@ -4,55 +4,86 @@ from gtts import gTTS
 
 # These modules are imported so that we can
 # play the converted audio
-from PyQt5 import QtCore, QtMultimedia
-from PyQt5.QtWidgets import QApplication
+from PyQt5 import QtMultimedia, QtCore
+from PyQt5.QtGui import *
+from PyQt5.QtWidgets import *
 import os
 import sys
 
 
-def main():
-	# The text that you want to convert to audio
-	mytext = clipboard.text() # 'Anything goes' #entry1.get()
+class TTSWindow(QMainWindow, QApplication):
+    # constructor
+    def __init__(self, *args, **kwargs):
+        super(TTSWindow, self).__init__(*args, **kwargs)
+        
+        # creating QToolbar for navigation
+        # adding this status bar to the main window
+        navtb = QToolBar("Navigation")
+        self.addToolBar(navtb)
+        
+        playBtn = QPushButton("Play", self)
+        playBtn.clicked.connect(self.play)
+        navtb.addWidget(playBtn)
+        
+        pauseBtn = QPushButton("Pause", self)
+        pauseBtn.clicked.connect(self.pause)
+        navtb.addWidget(pauseBtn)
+        
+        quitBtn = QPushButton("Quit", self)
+        quitBtn.clicked.connect(self.quit)
+        
+        resumeBtn = QPushButton("Resume", self)
+        resumeBtn.clicked.connect(self.resume)
+        navtb.addWidget(resumeBtn)
+        navtb.addWidget(quitBtn)
+        
+        self.player = None
+        self.show()
+        
+    def pause(self):
+    	self.player.pause()
+    	
+    	
+    def play(self):
+        self.player = QtMultimedia.QMediaPlayer()
+        
+        # The text that you want to convert to audio
+        mytext = self.clipboard().text() # 'Anything goes' #entry1.get()
+			
+				# Language in which you want to convert
+        language = 'en'
+			
+				# Passing the text and language to the engine,
+				# here we have marked slow=False. Which tells
+				# the module that the converted audio should
+				# have a high speed
+        myobj = gTTS(text=mytext, lang=language, slow=False)
+			
+				# Saving the converted audio in a mp3 file named
+				# welcome
+        myobj.save("welcome.mp3")
+			
+				# Playing the converted file
+        CURRENT_DIR = os.path.dirname(os.path.realpath(__file__))
+        filename = os.path.join(CURRENT_DIR, "welcome.mp3")
+        
+        url = QtCore.QUrl.fromLocalFile(filename)
+        self.player.setMedia(QtMultimedia.QMediaContent(url))
+        self.player.play()
+		
 
-	# Language in which you want to convert
-	language = 'en'
-
-	# Passing the text and language to the engine,
-	# here we have marked slow=False. Which tells
-	# the module that the converted audio should
-	# have a high speed
-	myobj = gTTS(text=mytext, lang=language, slow=False)
-
-	# Saving the converted audio in a mp3 file named
-	# welcome
-	myobj.save("welcome.mp3")
-
-	# Playing the converted file
-	# os.system("mpg321 welcome.mp3")
-
-	CURRENT_DIR = os.path.dirname(os.path.realpath(__file__))
-	player = QtMultimedia.QMediaPlayer()
-	
-	def handle_state_changed(state):
-	  	         if state == QtMultimedia.QMediaPlayer.PlayingState:
-	  	         	print("started")
-	  	         elif state == QtMultimedia.QMediaPlayer.StoppedState:
-	  	         	print("finished")
-	  	         	QtCore.QCoreApplication.quit()
-            
-            
-	filename = os.path.join(CURRENT_DIR, "welcome.mp3")
-	app = QtCore.QCoreApplication(sys.argv)
-	player.stateChanged.connect(handle_state_changed)
-
-	url = QtCore.QUrl.fromLocalFile(filename)
-	player.setMedia(QtMultimedia.QMediaContent(url))
-	player.play()
-
-	sys.exit(app.exec_())
-
+    def quit(self):
+    	QtCore.QCoreApplication.quit()
+    	
+    	
+    def resume(self):
+    	self.player.play()
+			
+									
 if __name__ == "__main__":
-	print(sys.argv[0])
-	app1 = QApplication(sys.argv)
-	clipboard = app1.clipboard()
-	main()
+	app = QApplication(sys.argv)
+	app.setApplicationName('IPI Galaxy Tab Text to Speech')
+	ttsWindow = TTSWindow()
+	
+	# loop
+	app.exec_()
