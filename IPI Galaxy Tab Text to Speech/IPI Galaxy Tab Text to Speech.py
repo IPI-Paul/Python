@@ -43,38 +43,35 @@ class TTSWindow(QMainWindow, QApplication):
     def pause(self):
     	self.player.pause()
     	
-    	
     def play(self):
         self.player = QtMultimedia.QMediaPlayer()
         
         # The text that you want to convert to audio
         mytext = self.clipboard().text() # 'Anything goes' #entry1.get()
 			
-				# Language in which you want to convert
+	# Language in which you want to convert
         language = 'en'
 			
-				# Passing the text and language to the engine,
-				# here we have marked slow=False. Which tells
-				# the module that the converted audio should
-				# have a high speed
+	# Passing the text and language to the engine,
+	# here we have marked slow=False. Which tells
+	# the module that the converted audio should
+	# have a high speed
         myobj = gTTS(text=mytext, lang=language, slow=False)
 			
-				# Saving the converted audio in a mp3 file named
-				# welcome
+	# Saving the converted audio in a mp3 file named
+	# welcome
         myobj.save("welcome.mp3")
 			
-				# Playing the converted file
+	# Playing the converted file
         CURRENT_DIR = os.path.dirname(os.path.realpath(__file__))
         filename = os.path.join(CURRENT_DIR, "welcome.mp3")
         
         url = QtCore.QUrl.fromLocalFile(filename)
         self.player.setMedia(QtMultimedia.QMediaContent(url))
         self.player.play()
-		
 
     def quit(self):
     	QtCore.QCoreApplication.quit()
-    	
     	
     def resume(self):
     	self.player.play()
@@ -87,3 +84,4 @@ if __name__ == "__main__":
 	
 	# loop
 	app.exec_()
+	
