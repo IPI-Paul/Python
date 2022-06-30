@@ -15,8 +15,9 @@ After a few failed attempts, I decided to give it another go. Luckily I found a 
 
  - Populated the text variable with clipboard text using PyQt5 widgets
  - Played the saved mp3 using the PyQt5 media player
+ - Added Play, Pause, Resume and Quit controller buttons and actions
 
-I will have to eventually learn how to provide a browser/form element to enable Start, Pause, Resume and Stop functions as trying to use a simple tkinter form would not work.
+I will have to eventually learn how to display the form as a pop-up in the Android Tablet environment so that it does not fill the entire screen.
 
 # Learn Python in 5hrs
 
