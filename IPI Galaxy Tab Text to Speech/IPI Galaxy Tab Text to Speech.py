@@ -9,12 +9,56 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 import os
 import sys
+import re
 
 
 class TTSWindow(QMainWindow, QApplication):
     # constructor
     def __init__(self, *args, **kwargs):
         super(TTSWindow, self).__init__(*args, **kwargs)
+        self.grid = QWidget()
+        self.layout = QGridLayout()
+        
+        pattern = re.compile('.*\.(mp3|MP3)$')
+        mp3s = []
+        for root, dirnames, filenames in os.walk('/storage'):
+              try:
+              	for filename in filter(lambda name:pattern.match(name),filenames):
+              		mp3s.append(os.path.join(root, filename))
+              except:
+              	pass
+        
+        for root, dirnames, filenames in os.walk('/storage/emulated/0'):
+        	for filename in filter(lambda name:pattern.match(name),filenames):
+        		mp3s.append(os.path.join(root, filename))
+			
+        rowNum = 0
+        colNum = 0
+        btnNum = 0
+        self.buttons = {}
+        for mPath in mp3s:
+        	if colNum == 5:
+        		colNum = 0
+        		rowNum += 1
+        	
+        	self.buttons[btnNum] = QToolButton(self)
+        	
+        	label = QLabel(mPath, self.buttons[btnNum])
+        	label.setFixedSize(350, 150)
+        	label.setFont(QFont('Arial', 10))
+        	label.setWordWrap(True)
+        	
+        	self.buttons[btnNum].setFixedSize(350, 150)
+        	self.buttons[btnNum].clicked.connect(lambda state, x=mPath: self.play_file(x))
+        	self.layout.addWidget(self.buttons[btnNum], rowNum, colNum)
+        	colNum += 1
+        	btnNum += 1
+        self.grid.setLayout(self.layout)
+
+        # size the window
+        self.setMinimumWidth(950)
+        # self.setMinimumHeight(800)
+        self.setCentralWidget(self.grid)
         
         # creating QToolbar for navigation
         # adding this status bar to the main window
@@ -48,8 +92,30 @@ class TTSWindow(QMainWindow, QApplication):
         
         # The text that you want to convert to audio
         mytext = self.clipboard().text() # 'Anything goes' #entry1.get()
-			
-	# Language in which you want to convert
+        self.save(mytext)
+				
+	# Playing the converted file
+        CURRENT_DIR = os.path.dirname(os.path.realpath(__file__))
+        filename = os.path.join(CURRENT_DIR, "welcome.mp3")
+        
+        url = QtCore.QUrl.fromLocalFile(filename)
+        self.player.setMedia(QtMultimedia.QMediaContent(url))
+        self.player.play()
+
+    def play_file(self, mp3):
+    	url = QtCore.QUrl.fromLocalFile(mp3)
+    	self.player = QtMultimedia.QMediaPlayer()
+    	self.player.setMedia(QtMultimedia.QMediaContent(url))
+    	self.player.play()
+    
+    def quit(self):
+    	QtCore.QCoreApplication.quit()
+    	
+    def resume(self):
+    	self.player.play()
+    
+    def save(self, mytext):
+    	# Language in which you want to convert
         language = 'en'
 			
 	# Passing the text and language to the engine,
@@ -61,21 +127,6 @@ class TTSWindow(QMainWindow, QApplication):
 	# Saving the converted audio in a mp3 file named
 	# welcome
         myobj.save("welcome.mp3")
-			
-	# Playing the converted file
-        CURRENT_DIR = os.path.dirname(os.path.realpath(__file__))
-        filename = os.path.join(CURRENT_DIR, "welcome.mp3")
-        
-        url = QtCore.QUrl.fromLocalFile(filename)
-        self.player.setMedia(QtMultimedia.QMediaContent(url))
-        self.player.play()
-
-    def quit(self):
-    	QtCore.QCoreApplication.quit()
-    	
-    def resume(self):
-    	self.player.play()
-			
 									
 if __name__ == "__main__":
 	app = QApplication(sys.argv)
@@ -84,4 +135,3 @@ if __name__ == "__main__":
 	
 	# loop
 	app.exec_()
-	
