@@ -16,6 +16,7 @@ After a few failed attempts, I decided to give it another go. Luckily I found a 
  - Populated the text variable with clipboard text using PyQt5 widgets
  - Played the saved mp3 using the PyQt5 media player
  - Added Play, Pause, Resume and Quit controller buttons and actions
+ - Added function to search Samsung Galaxy Tab S3 for all mp3 files and display as buttons, that when clicked plays the file. I was a bit disappointed that my Tab plays mp4s without problem from the My Files folders but not mp3s.
 
 I will have to eventually learn how to display the form as a pop-up in the Android Tablet environment so that it does not fill the entire screen.
 
