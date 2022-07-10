@@ -178,7 +178,7 @@ class TextEditor(QMainWindow):
 				text = f.readlines()
 				self.editor.setText(''.join(text))
 		except Exception as e:
-			self.editor.setText(e.args[0])
+			print(e)
 	
 	def outdent(self):
 		cursor, selectionStart, startBlock, endBlock = self.get_blocks()
