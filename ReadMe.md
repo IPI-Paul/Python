@@ -17,6 +17,7 @@ After a few failed attempts, I decided to give it another go. Luckily I found a 
  - Played the saved mp3 using the PyQt5 media player
  - Added Play, Pause, Resume and Quit controller buttons and actions
  - Added function to search Samsung Galaxy Tab S3 for all mp3 files and display as buttons, that when clicked plays the file. I was a bit disappointed that my Tab plays mp4s without problem from the My Files folders but not mp3s.
+ - Added a Rich Text Editor as the Samsung Galaxy Tab S3 does not have a default editor other than Samsung Notes (which is quite good in fact), but this one allows you to copy and paste chunks of text in, and then copy the whole block to clipboard before using the Text to Speech function.
 
 I will have to eventually learn how to display the form as a pop-up in the Android Tablet environment so that it does not fill the entire screen.
 
