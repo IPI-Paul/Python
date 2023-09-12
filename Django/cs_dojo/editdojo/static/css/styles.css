@@ -1,0 +1,28 @@
+h1, form {
+  display: flex;
+  justify-content: center;
+}
+.delete {
+  display: inline;
+  justify-content: center;
+}
+.delete input {
+  font: inherit;
+  font-size: 0.7rem;
+  background-color: rgb(201, 123, 123);
+  border-radius: 15px;
+}
+.input {
+  display: flex;
+  gap: 5px;
+}
+.input input{
+  border-radius: 5px;
+}
+.input #content {
+  width: 50vw;
+  border: 1px solid gray;
+}
+.smText {
+  font-size: xx-small;
+}
