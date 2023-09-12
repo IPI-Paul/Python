@@ -1,0 +1,190 @@
+h1, form {
+  display: flex;
+  justify-content: center;
+}
+.delete, .link-form {
+  display: inline;
+  justify-content: center;
+}
+.delete input {
+  font: inherit;
+  font-size: 0.7rem;
+  background-color: rgb(201, 123, 123);
+  border-radius: 15px;
+}
+.input {
+  display: flex;
+  gap: 5px;
+}
+.input input{
+  border-radius: 5px;
+}
+.input #content {
+  width: 50vw;
+  border: 1px solid gray;
+}
+.smText {
+  font-size: 0.75rem;
+  padding-left: 10px;
+}
+.body, #js-login {
+  background-color: wheat;
+  margin: 0;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+  margin-left: 5px;
+  gap: 2.5;
+  padding: 5px;
+}
+.views, .models, .objects {
+  margin: 5px 25px;
+}
+.view, .model, .functions, .object {
+  margin-left: 50px;
+}
+.functions, .api-link {
+  margin-left: 75px;
+}
+.function, .desc, h4, .note {
+  margin-left: 100px;
+}
+.desc {
+  width: 80vw;
+  height: auto;
+  font-size: 0.95rem;
+}
+.desc, h4 {
+  color: rgb(54, 75, 17);
+}
+.warning {
+  color: red;
+}
+.info {
+  color: brown;
+}
+.link {
+  color: blue;
+  cursor: pointer;
+  text-decoration: underline;
+  border: none;
+  background-color: transparent;
+  width: fit-content;
+  font-size: 0.75rem;
+}
+.link:visited {
+  color: purple;
+}
+.update-form {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 82.5vh;
+  padding: 15px;
+  gap: 10px;
+}
+.update-form div {
+  display: flex;
+  justify-content: space-between;
+}
+.update-form input, .update-form textarea {
+  width: 75vw;
+  border: 0.5px solid rgb(194, 192, 192);
+  border-radius: 5px;
+}
+.update-form textarea {
+  height: 40vh;
+}
+#submit {
+  justify-content: center;
+  margin-top: auto;
+}
+#submit button {
+  background-color: #fcb8ab;
+  border-radius: 5px;
+  min-width: 20vw;
+  min-height: 10vh;
+}
+.numbers {
+  text-align: right;
+}
+h3 {
+  margin-bottom: 2px;
+}
+h4 {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  font-size: 0.8rem;
+}
+nav {
+  justify-content: end;
+  margin-right: 20px;
+  top: 0;
+  gap: 10px;
+}
+nav, footer {
+  display: flex;
+  align-items: center;
+  background-color: #757373;
+  position: sticky;
+  width: 100vw;
+  padding: 5px;
+  color: cornsilk;
+}
+nav a {
+  margin-right: 15px;
+}
+footer {
+  justify-content: center;
+  bottom: 0;
+  margin-top: 15px;
+}
+.app-name h3 {
+  cursor: pointer;
+}
+.app-name {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.hidden {
+  display: none;
+}
+.visible {
+  display: flex;
+  flex-direction: column;
+}
+.note {
+  color: rgb(148, 42, 134);
+}
+#js-login, #content-container {
+  display: flex;
+  flex-direction: column;
+}
+.js-login {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #757373;
+  align-items: center;
+  padding: 10px;
+}
+#js-login, #content-container, #js-login form {
+  justify-content: flex-start;
+  align-content: flex-start;
+  gap: 5px;
+}
+#js-login input {
+  border: 1px solid gray;
+  border-radius: 5px;  
+}
+#content-container {
+  margin: 10px;
+  padding: 10px;
+}
+.btn {
+  background-color: rgb(22, 216, 151);
+  color: brown;
+}
