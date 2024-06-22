@@ -32,16 +32,4 @@ Here is my own adaptation of the course materials. I found her pace easy to foll
  - A lot of tutorials of late teach you certain functions and then erase them from the working document and leave you without a reminder trail. So, I had to write code to call the functions learned in each example and contain each example as functions/methods within the working document.
 
   - Unfortunately, my Linux distro did not have an Excel document viewer that would open Excel files saved by Python using the examples in all the videos I watched. I had no problems viewing Excel files saved by Excel. So, I opted for only saving files in a csv format.
-
-
-# Python - Data Analysis with Python for Excel Users
-
-This was an interesting tutorial https://m.youtube.com/watch?v=WcDaZ67TVRo, but really, I am more than happy with Excel and VBA is the light at the end of the tunnel in my everyday working life. I was not much impressed by Jupyter Notebooks and preferred to follow the whole tutorial using PyCharm only. However, I still found that Frank's introduction on the workings of Jupyter Notebooks was very helpful and showed that this was not just about writing code, but also about giving it a well designed and formatted layout.
-
-This tutorial again offered me the chance to:
-
- - turn each example in to a function/method
- - devise a way of using the import module function to display the code being used before displaying the results
- - learn more about how to get the desired results from a mix of lambdas and the map function
- - learn a lot on how to use the re module to make inputs more interactive
-
+  
